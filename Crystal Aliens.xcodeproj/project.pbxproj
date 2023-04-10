@@ -15,6 +15,12 @@
 		8359236629D8B50100161605 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8359236429D8B50100161605 /* Main.storyboard */; };
 		8359236829D8B50300161605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8359236729D8B50300161605 /* Assets.xcassets */; };
 		8359236B29D8B50300161605 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8359236929D8B50300161605 /* LaunchScreen.storyboard */; };
+		8359237229D8BCDE00161605 /* 151023__bubaproducer__laser-shot-short.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8359237129D8BCDE00161605 /* 151023__bubaproducer__laser-shot-short.wav */; };
+		8359237429D8E56000161605 /* 455918__bolkmar__missile-launcher-explosion-only.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8359237329D8E56000161605 /* 455918__bolkmar__missile-launcher-explosion-only.wav */; };
+		8359237629D8E7AF00161605 /* THEBOLDFONT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8359237529D8E72200161605 /* THEBOLDFONT.ttf */; };
+		8359237929D90F0200161605 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8359237829D90F0200161605 /* GameOverScene.swift */; };
+		8359237B29DB639C00161605 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8359237A29DB639C00161605 /* MainMenuScene.swift */; };
+		8359237E29DB8B1400161605 /* air_war.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 8359237D29DB8B1400161605 /* air_war.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +33,13 @@
 		8359236529D8B50100161605 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8359236729D8B50300161605 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8359236A29D8B50300161605 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8359237129D8BCDE00161605 /* 151023__bubaproducer__laser-shot-short.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "151023__bubaproducer__laser-shot-short.wav"; sourceTree = "<group>"; };
+		8359237329D8E56000161605 /* 455918__bolkmar__missile-launcher-explosion-only.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "455918__bolkmar__missile-launcher-explosion-only.wav"; sourceTree = "<group>"; };
+		8359237529D8E72200161605 /* THEBOLDFONT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = THEBOLDFONT.ttf; sourceTree = "<group>"; };
+		8359237729D8E7CD00161605 /* Crystal-Aliens-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Crystal-Aliens-Info.plist"; sourceTree = SOURCE_ROOT; };
+		8359237829D90F0200161605 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		8359237A29DB639C00161605 /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
+		8359237D29DB8B1400161605 /* air_war.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = air_war.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,14 +72,21 @@
 		8359235929D8B50100161605 /* Crystal Aliens */ = {
 			isa = PBXGroup;
 			children = (
+				8359237729D8E7CD00161605 /* Crystal-Aliens-Info.plist */,
 				8359235A29D8B50100161605 /* AppDelegate.swift */,
 				8359235C29D8B50100161605 /* GameScene.sks */,
 				8359235E29D8B50100161605 /* Actions.sks */,
 				8359236029D8B50100161605 /* GameScene.swift */,
+				8359237129D8BCDE00161605 /* 151023__bubaproducer__laser-shot-short.wav */,
+				8359237D29DB8B1400161605 /* air_war.m4a */,
 				8359236229D8B50100161605 /* GameViewController.swift */,
+				8359237529D8E72200161605 /* THEBOLDFONT.ttf */,
+				8359237329D8E56000161605 /* 455918__bolkmar__missile-launcher-explosion-only.wav */,
 				8359236429D8B50100161605 /* Main.storyboard */,
 				8359236729D8B50300161605 /* Assets.xcassets */,
 				8359236929D8B50300161605 /* LaunchScreen.storyboard */,
+				8359237829D90F0200161605 /* GameOverScene.swift */,
+				8359237A29DB639C00161605 /* MainMenuScene.swift */,
 			);
 			path = "Crystal Aliens";
 			sourceTree = "<group>";
@@ -129,11 +149,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8359237629D8E7AF00161605 /* THEBOLDFONT.ttf in Resources */,
 				8359236629D8B50100161605 /* Main.storyboard in Resources */,
 				8359235D29D8B50100161605 /* GameScene.sks in Resources */,
 				8359236829D8B50300161605 /* Assets.xcassets in Resources */,
 				8359236B29D8B50300161605 /* LaunchScreen.storyboard in Resources */,
+				8359237429D8E56000161605 /* 455918__bolkmar__missile-launcher-explosion-only.wav in Resources */,
 				8359235F29D8B50100161605 /* Actions.sks in Resources */,
+				8359237229D8BCDE00161605 /* 151023__bubaproducer__laser-shot-short.wav in Resources */,
+				8359237E29DB8B1400161605 /* air_war.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8359237B29DB639C00161605 /* MainMenuScene.swift in Sources */,
 				8359236129D8B50100161605 /* GameScene.swift in Sources */,
 				8359236329D8B50100161605 /* GameViewController.swift in Sources */,
+				8359237929D90F0200161605 /* GameOverScene.swift in Sources */,
 				8359235B29D8B50100161605 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,12 +321,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BJYRRMLA6N;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Crystal-Aliens-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Air War";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,12 +352,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BJYRRMLA6N;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Crystal-Aliens-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Air War";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
