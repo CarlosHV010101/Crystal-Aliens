@@ -9,7 +9,10 @@ import GameplayKit
 import GameKit
 import SpriteKit
 
-class GameOverScene: SKScene {
+class GameOverScene: SKScene, Alertable {
+    
+    let defaults = UserDefaults()
+    let higherScoreNumber = UserDefaults.standard.integer(forKey: "highScore")
     
     let restartLabel = SKLabelNode(fontNamed: "The Bold Font")
     
@@ -40,6 +43,8 @@ class GameOverScene: SKScene {
         let defaults = UserDefaults()
         var higherScoreNumber = defaults.integer(forKey: "highScore")
         
+        print(higherScoreNumber)
+        
         if gameScore > higherScoreNumber {
             higherScoreNumber = gameScore
             defaults.set(higherScoreNumber, forKey: "highScore")
@@ -60,6 +65,8 @@ class GameOverScene: SKScene {
         restartLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.3)
         self.addChild(restartLabel)
         
+        saveScore()
+        
     }
  
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -72,9 +79,29 @@ class GameOverScene: SKScene {
                 let sceneToMove = GameScene(size: self.size)
                 sceneToMove.scaleMode = self.scaleMode
                 let transition = SKTransition.fade(withDuration: 0.5)
-                self.view!.presentScene(sceneToMove)
+                self.view!.presentScene(sceneToMove, transition: transition)
             }
         }
+    }
+    
+    
+    func saveScore() {
+
+        defer {
+            saveHigher(gameScore)
+        }
+        
+        if gameScore > higherScoreNumber {
+            showAlert(withTitle: "High Score", message: "Introduzca un nombre de 5 letras", action: saveNewHighScore)
+        }
+    }
+    
+    func saveNewHighScore(player: String) {
+        defaults.set(player, forKey: "highScorePlayer")
+    }
+    
+    func saveHigher(_ score: Int) {
+        defaults.set(score, forKey: "highScore")
     }
     
 }

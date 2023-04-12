@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8333226929E462C60052F53A /* HighScoresScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333226829E462C60052F53A /* HighScoresScene.swift */; };
+		8333226B29E4648F0052F53A /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333226A29E4648F0052F53A /* Alertable.swift */; };
 		8359235B29D8B50100161605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8359235A29D8B50100161605 /* AppDelegate.swift */; };
 		8359235D29D8B50100161605 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8359235C29D8B50100161605 /* GameScene.sks */; };
 		8359235F29D8B50100161605 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8359235E29D8B50100161605 /* Actions.sks */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8333226829E462C60052F53A /* HighScoresScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresScene.swift; sourceTree = "<group>"; };
+		8333226A29E4648F0052F53A /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		8359235729D8B50100161605 /* Crystal Aliens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crystal Aliens.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8359235A29D8B50100161605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8359235C29D8B50100161605 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				8359236929D8B50300161605 /* LaunchScreen.storyboard */,
 				8359237829D90F0200161605 /* GameOverScene.swift */,
 				8359237A29DB639C00161605 /* MainMenuScene.swift */,
+				8333226829E462C60052F53A /* HighScoresScene.swift */,
+				8333226A29E4648F0052F53A /* Alertable.swift */,
 			);
 			path = "Crystal Aliens";
 			sourceTree = "<group>";
@@ -169,6 +175,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8359237B29DB639C00161605 /* MainMenuScene.swift in Sources */,
+				8333226B29E4648F0052F53A /* Alertable.swift in Sources */,
+				8333226929E462C60052F53A /* HighScoresScene.swift in Sources */,
 				8359236129D8B50100161605 /* GameScene.swift in Sources */,
 				8359236329D8B50100161605 /* GameViewController.swift in Sources */,
 				8359237929D90F0200161605 /* GameOverScene.swift in Sources */,

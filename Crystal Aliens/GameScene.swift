@@ -19,6 +19,7 @@ class GameScene: SKScene {
         case preGame
         case inGame
         case afterGame
+        case continueGame
     }
     
     var currentGameState: GameState = .preGame
@@ -36,6 +37,7 @@ class GameScene: SKScene {
     let explosionSound = SKAction.playSoundFileNamed("455918__bolkmar__missile-launcher-explosion-only", waitForCompletion: false)
     
     let tapToStartLabel = SKLabelNode(fontNamed: "The Bold Font")
+    let tapToContinueLabel = SKLabelNode(fontNamed: "The Bold Font")
     
     
     struct PhysicsCategories {
@@ -76,31 +78,9 @@ class GameScene: SKScene {
         
         self.physicsWorld.contactDelegate = self
         
-        //BACKGROUND SPRITE
-        for i in 0...1 {
-            let background = SKSpriteNode(imageNamed: "background")
-            background.size = self.size
-            background.anchorPoint = CGPoint(x: 0.5, y: 0)
-            
-            background.position = CGPoint(
-                x: self.size.width / 2,
-                y: self.size.height * CGFloat(i)
-            )
-            background.zPosition = 0
-            background.name = "Background"
-            self.addChild(background)
-        }
+        createBackground()
         
-        //PLAYER SPRITE
-        player.setScale(1)
-        player.position = CGPoint(x: self.size.width / 2, y:  0 - player.size.height)
-        player.zPosition = 2
-        player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
-        player.physicsBody!.affectedByGravity = false
-        player.physicsBody!.categoryBitMask = PhysicsCategories.Player
-        player.physicsBody!.collisionBitMask = PhysicsCategories.None
-        player.physicsBody!.contactTestBitMask = PhysicsCategories.Enemy
-        self.addChild(player)
+        createPlayer()
         
         scoreLabel.text = "Score: \(gameScore)"
         scoreLabel.fontSize = 70
@@ -135,6 +115,49 @@ class GameScene: SKScene {
         tapToStartLabel.run(fadeInAction)
     }
     
+    func createPlayer() {
+        //PLAYER SPRITE
+        player.setScale(1)
+        player.position = CGPoint(x: self.size.width / 2, y:  0 - player.size.height)
+        player.zPosition = 2
+        player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
+        player.physicsBody!.affectedByGravity = false
+        player.physicsBody!.categoryBitMask = PhysicsCategories.Player
+        player.physicsBody!.collisionBitMask = PhysicsCategories.None
+        player.physicsBody!.contactTestBitMask = PhysicsCategories.Enemy
+        self.addChild(player)
+    }
+    
+    func createBackground() {
+        //BACKGROUND SPRITE
+        for i in 0...1 {
+            let background = SKSpriteNode(imageNamed: "background")
+            background.size = self.size
+            background.anchorPoint = CGPoint(x: 0.5, y: 0)
+            
+            background.position = CGPoint(
+                x: self.size.width / 2,
+                y: self.size.height * CGFloat(i)
+            )
+            background.zPosition = 0
+            background.name = "Background"
+            self.addChild(background)
+        }
+    }
+    
+    func createTapToContinueLabel() {
+        tapToContinueLabel.text = "Tap to Continue"
+        tapToContinueLabel.fontSize = 100
+        tapToContinueLabel.fontColor = SKColor.white
+        tapToContinueLabel.zPosition = 1
+        tapToContinueLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        tapToContinueLabel.alpha = 0
+        self.addChild(tapToContinueLabel)
+                
+        let fadeInAction = SKAction.fadeIn(withDuration: 0.3)
+        tapToContinueLabel.run(fadeInAction)
+    }
+    
     var lastUpdateTime: TimeInterval = 0
     var deltaFrameTime: TimeInterval = 0
     var amountToMovePerSecond: CGFloat = 600.0
@@ -159,19 +182,41 @@ class GameScene: SKScene {
     }
     
     func startGame() {
+        
+        if currentGameState == .preGame {
+            deleteTapToStartLabel()
+        }
+        
+        if currentGameState == .continueGame {
+            deleteTapToContinueLabel()
+            createPlayer()
+        }
+        
         currentGameState = .inGame
         
+        
+        let moveShipOntoScreenAction = SKAction.moveTo(y: self.size.height * 0.2, duration: 0.5)
+        let startLevelAction = SKAction.run(startNewLevel)
+        let startGameSequence = SKAction.sequence([moveShipOntoScreenAction, startLevelAction])
+        
+        player.run(startGameSequence)
+        
+    }
+    
+    func deleteTapToStartLabel() {
         let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
         let deleteAction = SKAction.removeFromParent()
         let deleteSequence = SKAction.sequence([fadeOutAction, deleteAction])
         
         tapToStartLabel.run(deleteSequence)
+    }
+    
+    func deleteTapToContinueLabel() {
+        let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
+        let deleteAction = SKAction.removeFromParent()
+        let deleteSequence = SKAction.sequence([fadeOutAction, deleteAction])
         
-        let moveShipOntoScreenAction = SKAction.moveTo(y: self.size.height * 0.2, duration: 0.5)
-        let startLevelAction = SKAction.run(startNewLevel)
-        let startGameSequence = SKAction.sequence([moveShipOntoScreenAction, startLevelAction])
-        player.run(startGameSequence)
-        
+        tapToContinueLabel.run(deleteSequence)
     }
     
     func loseLife() {
@@ -183,7 +228,9 @@ class GameScene: SKScene {
         let scaleSequence = SKAction.sequence([scaleUp, scaleDown])
         livesLabel.run(scaleSequence)
         
-        if livesNumber == 0 {
+        if livesNumber != 0 {
+            startNewLifeAfterCrash()
+        } else {
             runGameOver()
         }
     }
@@ -191,6 +238,10 @@ class GameScene: SKScene {
     func addScore() {
         gameScore += 1
         scoreLabel.text = "Score: \(gameScore)"
+        
+        if gameScore % 25 == 0 {
+            livesNumber += 1
+        }
         
         if gameScore % 10 == 0 {
             startNewLevel()
@@ -206,31 +257,43 @@ class GameScene: SKScene {
         }
         
         var levelDuration = TimeInterval()
+        var spawnDuration = TimeInterval()
          
         switch levelNumber {
         case 1:
             levelDuration = 3
+            spawnDuration = 1.5
         case 2:
             levelDuration = 2.5
+            spawnDuration = 1.4
         case 3:
             levelDuration = 2
+            spawnDuration = 1.3
         case 4:
             levelDuration = 1.9
+            spawnDuration = 1.2
         case 5:
             levelDuration = 1.9
+            spawnDuration = 1
         case 6:
             levelDuration = 1.7
+            spawnDuration = 1
         case 7:
             levelDuration = 1.6
+            spawnDuration = 1
         case 8:
             levelDuration = 1.5
+            spawnDuration = 1
         case 9:
             levelDuration = 1.5
+            spawnDuration = 1
         default:
             levelDuration = 0.5
         }
         
-        let spawn = SKAction.run(spawnEnemy)
+        let spawn = SKAction.run {
+            self.spawnEnemy(duration: spawnDuration)
+        }
         let waitToSpan = SKAction.wait(forDuration: levelDuration)
         let spawnSequence = SKAction.sequence([waitToSpan, spawn])
         let spawnForever = SKAction.repeatForever(spawnSequence)
@@ -245,6 +308,7 @@ class GameScene: SKScene {
         
         self.enumerateChildNodes(withName: "Bullet") { bullet, stop in
             bullet.removeAllActions()
+            
         }
         
         self.enumerateChildNodes(withName: "Enemy") { enemy, stop in
@@ -256,6 +320,25 @@ class GameScene: SKScene {
         let changeSceneSequence = SKAction.sequence([waitToChangeScene, changeSceneAction])
         self.run(changeSceneSequence)
         
+    }
+    
+    func startNewLifeAfterCrash() {
+        currentGameState = GameState.continueGame
+        
+        self.removeAllActions()
+        
+        self.enumerateChildNodes(withName: "Bullet") { bullet, stop in
+            bullet.removeAllActions()
+            let deleteBullet = SKAction.removeFromParent()
+            let bulletSequence = SKAction.sequence([deleteBullet])
+            bullet.run(bulletSequence)
+        }
+        
+        self.enumerateChildNodes(withName: "Enemy") { enemy, stop in
+            enemy.removeAllActions()
+        }
+        
+        createTapToContinueLabel()
     }
     
     func changeScene() {
@@ -287,7 +370,7 @@ class GameScene: SKScene {
         
     }
     
-    func spawnEnemy() {
+    func spawnEnemy(duration: TimeInterval) {
         let randomXStart = random(
             min: gameArea.minX + player.size.width * 2, // HERE
             max: gameArea.maxX - player.size.width * 2
@@ -313,9 +396,9 @@ class GameScene: SKScene {
         enemy.physicsBody!.contactTestBitMask = PhysicsCategories.Player | PhysicsCategories.Bullet
         self.addChild(enemy)
         
-        let moveEnemy = SKAction.move(to: endPoint, duration: 1.5)
+        let moveEnemy = SKAction.move(to: endPoint, duration: duration)
         let deleteEnemy = SKAction.removeFromParent()
-        let loseLifeAction = SKAction.run(loseLife)
+        let loseLifeAction = SKAction.run(runGameOver)
         let enemySequence = SKAction.sequence([moveEnemy, deleteEnemy, loseLifeAction])
         
         let differenceX = endPoint.x - startPoint.x
@@ -348,7 +431,7 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if currentGameState == .preGame {
+        if currentGameState == .preGame || currentGameState == .continueGame {
             startGame()
         }
         
@@ -407,7 +490,7 @@ extension GameScene: SKPhysicsContactDelegate {
             body1.node?.removeFromParent()
             body2.node?.removeFromParent()
             
-            runGameOver()
+            loseLife()
         }
         
         if body1.categoryBitMask == PhysicsCategories.Bullet && body2.categoryBitMask == PhysicsCategories.Enemy && body2.node?.position.y ?? 0 < size.height {
