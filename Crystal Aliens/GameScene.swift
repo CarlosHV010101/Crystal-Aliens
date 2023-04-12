@@ -23,11 +23,15 @@ class GameScene: SKScene {
     }
     
     var currentGameState: GameState = .preGame
+    var shieldActivated: Bool = false
     
     var livesNumber = 3
     let livesLabel = SKLabelNode(fontNamed: "The Bold Font")
     
-    let player = SKSpriteNode(imageNamed: "playerShip")
+    let player: SKSpriteNode = {
+        let texture = SKTexture(imageNamed: "playerShip")
+        return SKSpriteNode(texture: texture)
+    }()
     
     let bulletSound = SKAction.playSoundFileNamed(
         "151023__bubaproducer__laser-shot-short.wav",
@@ -125,6 +129,7 @@ class GameScene: SKScene {
         player.physicsBody!.categoryBitMask = PhysicsCategories.Player
         player.physicsBody!.collisionBitMask = PhysicsCategories.None
         player.physicsBody!.contactTestBitMask = PhysicsCategories.Enemy
+        
         self.addChild(player)
     }
     
@@ -246,6 +251,22 @@ class GameScene: SKScene {
         if gameScore % 10 == 0 {
             startNewLevel()
         }
+        
+        if gameScore % 20 == 0 {
+            activateShield()
+        }
+    }
+    
+    func activateShield() {
+        shieldActivated = true
+        player.color = SKColor.systemBlue
+        player.color = SKColor.systemBlue
+        player.colorBlendFactor = 1.0
+    }
+    
+    func desactivateShield() {
+        shieldActivated = false
+        player.colorBlendFactor = 0
     }
     
     func startNewLevel() {
@@ -480,17 +501,24 @@ extension GameScene: SKPhysicsContactDelegate {
             //if the player has hit the enemy
             
             if let body1Position = body1.node?.position {
-                spawnExplosion(spawnPosition: body1Position)
+                if !shieldActivated {
+                    spawnExplosion(spawnPosition: body1Position)
+                }
             }
             
             if let body2Position = body2.node?.position {
                 spawnExplosion(spawnPosition: body2Position)
             }
             
-            body1.node?.removeFromParent()
-            body2.node?.removeFromParent()
+            if shieldActivated {
+                desactivateShield()
+            } else {
+                body1.node?.removeFromParent()
+                loseLife()
+            }
             
-            loseLife()
+            body2.node?.removeFromParent()
+                                    
         }
         
         if body1.categoryBitMask == PhysicsCategories.Bullet && body2.categoryBitMask == PhysicsCategories.Enemy && body2.node?.position.y ?? 0 < size.height {
