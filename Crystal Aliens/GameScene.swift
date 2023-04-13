@@ -240,12 +240,22 @@ class GameScene: SKScene {
         }
     }
     
+    func winLife() {
+        livesNumber += 1
+        livesLabel.text = "Lives: \(livesNumber)"
+        
+        let scaleUp = SKAction.scale(to: 3.5, duration: 0.2)
+        let scaleDown = SKAction.scale(to: 1, duration: 0.2)
+        let scaleSequence = SKAction.sequence([scaleUp, scaleDown])
+        livesLabel.run(scaleSequence)
+    }
+    
     func addScore() {
         gameScore += 1
         scoreLabel.text = "Score: \(gameScore)"
         
         if gameScore % 25 == 0 {
-            livesNumber += 1
+            winLife()
         }
         
         if gameScore % 10 == 0 {
@@ -283,7 +293,7 @@ class GameScene: SKScene {
         switch levelNumber {
         case 1:
             levelDuration = 3
-            spawnDuration = 1.5
+            spawnDuration = 5
         case 2:
             levelDuration = 2.5
             spawnDuration = 1.4

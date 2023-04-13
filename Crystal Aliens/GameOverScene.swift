@@ -86,13 +86,10 @@ class GameOverScene: SKScene, Alertable {
     
     
     func saveScore() {
-
-        defer {
-            saveHigher(gameScore)
-        }
         
         if gameScore > higherScoreNumber {
             showAlert(withTitle: "High Score", message: "Introduzca un nombre de 5 letras", action: saveNewHighScore)
+            saveHigher(gameScore)
         }
     }
     
