@@ -293,28 +293,28 @@ class GameScene: SKScene {
         switch levelNumber {
         case 1:
             levelDuration = 3
-            spawnDuration = 5
+            spawnDuration = 2.5
         case 2:
             levelDuration = 2.5
-            spawnDuration = 1.4
+            spawnDuration = 2.3
         case 3:
             levelDuration = 2
-            spawnDuration = 1.3
+            spawnDuration = 2.1
         case 4:
             levelDuration = 1.9
-            spawnDuration = 1.2
+            spawnDuration = 1.9
         case 5:
             levelDuration = 1.9
-            spawnDuration = 1
+            spawnDuration = 1.7
         case 6:
             levelDuration = 1.7
-            spawnDuration = 1
+            spawnDuration = 1.5
         case 7:
             levelDuration = 1.6
-            spawnDuration = 1
+            spawnDuration = 1.3
         case 8:
             levelDuration = 1.5
-            spawnDuration = 1
+            spawnDuration = 1.1
         case 9:
             levelDuration = 1.5
             spawnDuration = 1
