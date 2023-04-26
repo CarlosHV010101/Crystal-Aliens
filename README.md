@@ -1,5 +1,3 @@
-¡Hola! Aquí te proporciono una plantilla básica para crear un archivo README:
-
 # Crystal Aliens 🚀
 
 Este repositorio contiene un videojuego tipo Arcade, tomando como base los famosos Galaga y Space Invaders.
