@@ -73,4 +73,46 @@ High Score: al entrar a la pantalla de los High Scores aparece el nombre guardad
 
 ![IMG_3175](https://user-images.githubusercontent.com/100322385/234655702-910e1d77-0026-47bb-b844-0c304b8424bb.PNG)
 
+## Enemigos 
+
+Las rondas o niveles del juego van incrementando confoorme destruyes 10 enemigos lo que hace que estos aparezcan más rápido y vayan a una velocidad mayor. ✅
+
+El desplazamiento tradicional de los enemigos es de arriba hacia abajo en dirección a la nave del
+jugador, y con intervalos de movimientos aleatorios. ✅
+
+El enemigo efectúa un ataque kamikaze cuando tiene la oportunidad, el ataque consiste en
+impactarse contra la nave del jugador provocando su derribo. ✅
+
+
+## Jugador 
+
+Sólo tendrá 3 vidas por partida. (A menos que el alumno decida modificar ésta regla para
+incluir una característica especial) ✅
+
+El jugador pierde una vida cada vez que el enemigo toque al jugador ✅
+
+## Armas del jugador
+
+La nave del jugador estará equipada con misiles con la fuerza suficiente para derribar una
+nave enemiga. ✅
+
+La nave del jugador tendrá un escudo de fuerza que lo protegerá de ataques enemigos el
+cual será obtenido después de acumular cierta cantidad de puntos acumulados por la destrucción de oponentes (cada 20 puntos) ✅
+
+https://user-images.githubusercontent.com/100322385/234664289-842e9864-903f-490c-9679-5cafdd86b115.MP4
+
+
+Dificultad de juego
+El número de enemigos o frecuencia con que aparecerán aumenta a medida que el
+jugador derribe naves enemigas.
+
+La velocidad de desplazamiento del enemigo aumenta de acuerdo al progreso en el
+derribo de naves enemigas por parte del jugador.
+
+Ejemplo en Nivel 6: 
+
+https://user-images.githubusercontent.com/100322385/234666127-08d93ff8-8df3-4cff-8f0e-404ec3b721bd.MP4
+
+
+
 
