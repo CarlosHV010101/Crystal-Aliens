@@ -1,6 +1,6 @@
 ¡Hola! Aquí te proporciono una plantilla básica para crear un archivo README:
 
-# Crystal Aliens
+# Crystal Aliens 🚀
 
 Este repositorio contiene un videojuego tipo Arcade, tomando como base los famosos Galaga y Space Invaders.
 
@@ -49,5 +49,27 @@ El juego consiste en una nave que va navegando por el espacio mientras pelea con
 
 https://youtube.com/shorts/rl3PjtcP348?feature=share
 
+## Interfaz 
+
+Inicio: permite al jugador iniciar una nueva partida o ver los puntajes más altos 
+
+![IMG_3171](https://user-images.githubusercontent.com/100322385/234654762-034a45b2-6feb-4352-9c35-a62f321e062f.PNG)
+
+Gameplay: 
+
+![IMG_3172](https://user-images.githubusercontent.com/100322385/234654978-7cf4f8fc-a75f-4e05-a32a-e6c21029b6f4.PNG)
+
+
+Fin del juego: muestra el score del jugador, el score más alto y permite volver a comenzar 
+
+![IMG_3175](https://user-images.githubusercontent.com/100322385/234655196-500db49c-153b-4013-aa96-460696666565.PNG)
+
+High Score: cuando el jugador establece un nuevo record se le solicita un nombre con 5 letras 
+
+![IMG_3174](https://user-images.githubusercontent.com/100322385/234655381-008e0b31-7046-41b9-801d-dff9191a5334.PNG)
+
+High Score: al entrar a la pantalla de los High Scores aparece el nombre guardado 
+
+![IMG_3175](https://user-images.githubusercontent.com/100322385/234655702-910e1d77-0026-47bb-b844-0c304b8424bb.PNG)
 
 
