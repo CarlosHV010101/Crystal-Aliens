@@ -38,3 +38,16 @@ Pasos a seguir para instalar el software.
 ## Autor
 
 Carlos Hernández Vázquez -  Desarrollador  
+
+## Sprites 
+
+Los Sprites fueron construidos a base imágenes para mostrar la nave del jugador, las naves enemigas, las balas, y las explosiones por colisión.
+
+## Gameplay 
+
+El juego consiste en una nave que va navegando por el espacio mientras pelea con naves enemigas las cuales comienzan a aparecer de forma repentina aumentando el tiempo en el que aparecen y la velocidad con la que se dirigen. El jugador solo cuenta con 3 vidas en caso de ser colisionado por una nave enemiga. En caso de que una nave pase de largo por la pantalla y el jugador no logre impactarla el juego será terminado. 
+
+https://youtube.com/shorts/rl3PjtcP348?feature=share
+
+
+
