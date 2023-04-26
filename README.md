@@ -91,7 +91,7 @@ incluir una característica especial) ✅
 
 El jugador pierde una vida cada vez que el enemigo toque al jugador ✅
 
-## Armas del jugador
+## Armas del jugador
 
 La nave del jugador estará equipada con misiles con la fuerza suficiente para derribar una
 nave enemiga. ✅
@@ -102,17 +102,28 @@ cual será obtenido después de acumular cierta cantidad de puntos acumulados po
 https://user-images.githubusercontent.com/100322385/234664289-842e9864-903f-490c-9679-5cafdd86b115.MP4
 
 
-Dificultad de juego
+## Dificultad de juego
+
 El número de enemigos o frecuencia con que aparecerán aumenta a medida que el
-jugador derribe naves enemigas.
+jugador derribe naves enemigas. ✅
 
 La velocidad de desplazamiento del enemigo aumenta de acuerdo al progreso en el
-derribo de naves enemigas por parte del jugador.
+derribo de naves enemigas por parte del jugador. ✅
 
 Ejemplo en Nivel 6: 
 
 https://user-images.githubusercontent.com/100322385/234666127-08d93ff8-8df3-4cff-8f0e-404ec3b721bd.MP4
 
+Sonidos
 
+Se implementaron  sonidos para cada evento en el espacio de combate. ✅
+Disparo de jugador ✅
+Disparo de enemigo ✅
+Destrucción de nave del jugador ✅
+Destrucción de nave enemiga ✅
+
+## Música de fondo
+
+* [Crystal Castles - Air War] - (https://www.youtube.com/watch?v=2dK3Tzf8KwA)
 
 
