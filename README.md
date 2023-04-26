@@ -19,10 +19,6 @@ Este repositorio contiene un videojuego tipo Arcade, tomando como base los famos
 - Una conexión a Internet para descargar las dependencias necesarias.
 - Un entorno de prueba de iOS, como un simulador o un dispositivo físico, para ejecutar el juego y realizar pruebas.
 
-```
-Ejemplos
-```
-
 ### Instalación
 
 Pasos a seguir para instalar el software.
@@ -41,4 +37,4 @@ Pasos a seguir para instalar el software.
 
 ## Autor
 
-* ** Carlos Hernández Vázquez ** - * Desarrollador * - 
+Carlos Hernández Vázquez -  Desarrollador  
