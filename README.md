@@ -62,7 +62,8 @@ Gameplay:
 
 Fin del juego: muestra el score del jugador, el score más alto y permite volver a comenzar 
 
-![IMG_3175](https://user-images.githubusercontent.com/100322385/234655196-500db49c-153b-4013-aa96-460696666565.PNG)
+![IMG_3173](https://user-images.githubusercontent.com/100322385/234656047-ebfe05aa-b745-4fa7-a151-8cc1538636ce.PNG)
+
 
 High Score: cuando el jugador establece un nuevo record se le solicita un nombre con 5 letras 
 
