@@ -319,7 +319,8 @@ class GameScene: SKScene {
             levelDuration = 1.5
             spawnDuration = 1
         default:
-            levelDuration = 0.5
+            levelDuration = 1
+            spawnDuration = 1
         }
         
         let spawn = SKAction.run {

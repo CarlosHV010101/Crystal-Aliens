@@ -330,7 +330,7 @@
 				DEVELOPMENT_TEAM = BJYRRMLA6N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Crystal-Aliens-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Air War";
+				INFOPLIST_KEY_CFBundleDisplayName = "Crystal Aliens";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -361,7 +361,7 @@
 				DEVELOPMENT_TEAM = BJYRRMLA6N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Crystal-Aliens-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Air War";
+				INFOPLIST_KEY_CFBundleDisplayName = "Crystal Aliens";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
