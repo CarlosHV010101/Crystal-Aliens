@@ -113,11 +113,11 @@ https://user-images.githubusercontent.com/100322385/234666127-08d93ff8-8df3-4cff
 
 Sonidos
 
-Se implementaron  sonidos para cada evento en el espacio de combate. ✅
-Disparo de jugador ✅
-Disparo de enemigo ✅
-Destrucción de nave del jugador ✅
-Destrucción de nave enemiga ✅
+Se implementaron  sonidos para cada evento en el espacio de combate. 
+✅ Disparo de jugador 
+✅ Disparo de enemigo 
+✅ Destrucción de nave del jugador 
+✅ Destrucción de nave enemiga 
 
 ## Música de fondo
 
