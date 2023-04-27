@@ -84,8 +84,7 @@ impactarse contra la nave del jugador provocando su derribo. ✅
 
 ## Jugador 
 
-Sólo tendrá 3 vidas por partida. (A menos que el alumno decida modificar ésta regla para
-incluir una característica especial) ✅
+Sólo tendrá 3 vidas por partida. ✅
 
 El jugador pierde una vida cada vez que el enemigo toque al jugador ✅
 
